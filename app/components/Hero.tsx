@@ -1,63 +1,72 @@
 "use client";
-import React from "react";
-import { FaArrowDown } from "react-icons/fa";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
-const Hero: React.FC = () => {
+export default function Hero() {
   return (
-    <section id="hero" className="relative h-screen min-h-[600px] flex flex-col justify-center items-center text-center text-white overflow-hidden">
-      {/* Video de fondo optimizado */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0"
-      >
-        <source src="/tu-video-hero.mp4" type="video/mp4" />
-      </video>
-      
-      {/* Overlay gradiente para legibilidad */}
-      <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/40 to-gray-900 z-10"></div>
+    <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
+      {/* Background con Overlay Gradiente */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/bg2.png"
+          alt="Coaching background"
+          fill
+          className="object-cover opacity-50"
+          priority
+        />
+        <div className="absolute inset-0 bg-linear-to-t from-[#09090b] via-transparent to-black/40" />
+      </div>
 
-      <div className="relative z-20 px-6">
-        <motion.h1
-          className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight"
-          initial={{ y: -30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
+      <div className="relative z-10 max-w-5xl px-6 text-center">
+        <motion.span 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="inline-block px-4 py-1.5 mb-6 text-sm font-medium tracking-wider uppercase border rounded-full border-orange-500/30 bg-orange-500/10 text-orange-400"
         >
-          Transformez votre <span className="text-orange-500">corps</span> et <span className="text-blue-400">esprit</span>
+          Performance, Mobilité & Bien-être
+        </motion.span>
+        
+        <motion.h1
+          className="text-5xl md:text-8xl font-black tracking-tight leading-[1.1]"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          MAÎTRISEZ VOTRE <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-300">
+            MOUVEMENT
+          </span>
         </motion.h1>
 
-        <motion.p
-          className="text-lg md:text-2xl mb-10 max-w-2xl mx-auto font-light"
+        <motion.p 
+          className="mt-8 text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={{ delay: 0.4 }}
         >
-          Une approche ludique et fluide, axée sur la mobilité et la performance naturelle.
+          Développez une puissance athlétique et une fluidité naturelle grâce à la Weck Method et au Rope Flow.
         </motion.p>
 
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.8 }}
+        <motion.div 
+          className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
         >
-          <a href="#services" className="bg-orange-600 hover:bg-orange-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-lg">
-            Commencer l'entraînement
+          <a
+            href="#contact"
+            className="px-8 py-4 bg-orange-600 hover:bg-orange-500 text-white rounded-xl font-bold transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(249,115,22,0.3)]"
+          >
+            Réserver un appel gratuit
+          </a>
+          <a
+            href="#about"
+            className="px-8 py-4 bg-zinc-800/50 hover:bg-zinc-800 text-white rounded-xl font-bold backdrop-blur-md border border-zinc-700 transition-all"
+          >
+            Découvrir la méthode
           </a>
         </motion.div>
       </div>
-
-      <motion.a
-        href="#about"
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 text-3xl animate-bounce text-white/70 hover:text-white"
-      >
-        <FaArrowDown />
-      </motion.a>
     </section>
   );
-};
-
-export default Hero;
+}

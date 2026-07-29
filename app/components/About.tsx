@@ -2,10 +2,8 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Video } from "lucide-react";
 
 const methods = [
-
   {
     title: "Weck Method", // Asterisco añadido
     description:
@@ -39,7 +37,7 @@ const About: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 1 }}
         >
-          <h3 className="text-3xl font-bold mb-4">À propos de moi</h3>
+          <h3 className="text-3xl font-bold text-black mb-4">À propos de moi</h3>
           <p className="text-justify">
             Je m’appelle Quentin. Maître-nageur depuis plus de six ans, j’ai
             toujours été fasciné par la façon dont le corps apprend et s’adapte.
@@ -50,6 +48,10 @@ const About: React.FC = () => {
             dans sa pratique, en sécurité et en confiance. Dans mes séances on y
             apprend à écouter son corps, à en comprendre les signaux, à trouver
             l’équilibre entre ancrage et mouvement.
+            <br />
+            J’accompagne depuis plus de 6 ans des sportifs à améliorer leur
+            mouvement, leur mobilité et leur performance. Mon approche est
+            simple : comprendre votre corps pour mieux l’utiliser.
           </p>
         </motion.div>
 
@@ -58,22 +60,21 @@ const About: React.FC = () => {
           {methods.map((method, index) => (
             <motion.div
               key={index}
-              className="p-6 bg-white text-justify rounded-xl shadow-lg hover:shadow-2xl cursor-pointer transform hover:scale-105 transition-transform"
+              className="p-6 bg-red text-justify rounded-xl shadow-lg hover:shadow-2xl cursor-pointer transform hover:scale-105 transition-transform"
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               onClick={() => setSelectedMethod(index)}
             >
-              <h4 className="text-xl font-semibold mb-2">{method.title}</h4>
+              <h4 className="text-xl font-semibold mb-2 text-black">{method.title}</h4>
               <p>{method.description}</p>
               <br />
               <video
-                autoPlay
                 loop
                 muted
                 playsInline
-                className="w-full h-[400px] object-cover rounded-4xl  border border-gray-200"
+                className="w-full h-100 object-cover rounded-4xl  border border-gray-200"
               >
                 <source src={method.video} type="video/mp4" />
               </video>

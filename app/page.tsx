@@ -6,15 +6,21 @@ import FAQs from "../app/components/FAQ";
 import Footer from "../app/components/Footer";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
+import Proof from "./components/Proof";
+import Pourqui from "./components/Target";
+import Results from "./components/Results";
 
 const Home: NextPage = () => {
   return (
     <>
       <Header />
-      <main >
+      <main>
         <Hero />
         <About />
+        <Proof />
+        <Pourqui />
         <Services />
+        {/* <Results /> */}
         <FAQs />
         <Contact />
       </main>

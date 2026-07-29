@@ -1,18 +1,39 @@
 @import "tailwindcss";
 
-
-/* Scroll suave */
-html {
-  scroll-behavior: smooth;
+/* 1. CONFIGURACIÓN DEL TEMA (Variables de Tailwind v4) */
+@theme {
+  --color-brand-orange: #f97316;
+  --color-brand-dark: #09090b;
+  
 }
 
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-/* Animaciones personalizadas */
-@keyframes bounce-slow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  body {
+    background-color: #09090b !important;
+    color: #f4f4f5 !important;
+  }
+  h1, h2, h3, h4 {
+    color: #ffffff;
+  }
+  p {
+    color: #000000; /* Zinc-400 */
+  }
 }
 
-.animate-bounce-slow {
-  animation: bounce-slow 1.5s infinite;
+@layer components {
+  .glass-card {
+    background: rgba(24, 24, 27, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(63, 63, 70, 0.4);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glass-card:hover {
+    border-color: #f97316;
+    box-shadow: 0 0 25px rgba(249, 115, 22, 0.2);
+  }
 }

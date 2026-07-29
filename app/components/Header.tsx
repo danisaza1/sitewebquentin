@@ -17,11 +17,9 @@ export default function Header() {
   return (
     <>
       {/* Header principal */}
-      <header
-        className="fixed top-0 left-0 w-full z-40 flex justify-between items-center px-6 py-4 transition-all duration-700 ease-in-out text-white"
-      >
+      <header className="fixed top-0 left-0 w-full z-40 flex justify-between items-center px-6 py-4 transition-all duration-700 ease-in-out text-white">
         {/* Fond avec transition fluide */}
-        <div 
+        <div
           className={`absolute inset-0 -z-10 transition-all duration-700 ease-in-out
             ${
               scrolled
@@ -35,10 +33,10 @@ export default function Header() {
         {/* Menu desktop */}
         <nav className="hidden md:flex space-x-6 relative z-10">
           <Link href="#page">Accueil</Link>
-                    <Link href="#about">À propos</Link>
-
+          <Link href="#about">À propos</Link>
           <Link href="#services">Services</Link>
           <Link href="#faqs">FAQs</Link>
+          <Link href="#contact">Contact</Link>
         </nav>
 
         {/* Bouton hamburger mobile */}
